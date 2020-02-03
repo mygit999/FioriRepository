@@ -1,34 +1,24 @@
 {
 	"_version": "1.12.0",
 	"sap.app": {
-		"id": "com.demo.DemoUi5Project",
+		"id": "Devops.DevopsDemo",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
-		"title": "{{appTitle}}",
-		"description": "{{appDescription}}",
 		"applicationVersion": {
 			"version": "1.0.0"
 		},
-		"resources": "resources.json",
-		"dataSources": {
-			"mainService": {
-				"uri": "/northwind/V2/northwind/northwind.svc/",
-				"type": "OData",
-				"settings": {
-					"odataVersion": "2.0",
-					"localUri": "localService/metadata.xml"
-				}
-			}
-		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
 		"sourceTemplate": {
-			"id": "sap.ui.ui5-template-plugin.1worklist",
-			"version": "1.74.0"
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
 		}
 	},
+
 	"sap.ui": {
 		"technology": "UI5",
 		"icons": {
-			"icon": "sap-icon://task",
+			"icon": "",
 			"favIcon": "",
 			"phone": "",
 			"phone@2": "",
@@ -41,23 +31,21 @@
 			"phone": true
 		}
 	},
+
 	"sap.ui5": {
+		"flexEnabled": false,
 		"rootView": {
-			"viewName": "com.demo.DemoUi5Project.view.App",
+			"viewName": "Devops.DevopsDemo.view.View1",
 			"type": "XML",
 			"async": true,
-			"id": "app"
+			"id": "View1"
 		},
 		"dependencies": {
-			"minUI5Version": "1.66.0",
+			"minUI5Version": "1.65.6",
 			"libs": {
+				"sap.ui.layout": {},
 				"sap.ui.core": {},
-				"sap.m": {},
-				"sap.f": {},
-				"sap.ushell": {},
-				"sap.collaboration": {
-					"lazy": true
-				}
+				"sap.m": {}
 			}
 		},
 		"contentDensities": {
@@ -68,73 +56,37 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "com.demo.DemoUi5Project.i18n.i18n"
+					"bundleName": "Devops.DevopsDemo.i18n.i18n"
 				}
-			},
-			"": {
-				"dataSource": "mainService",
-				"preload": true
 			}
 		},
-		"services": {
-			"ShellUIService": {
-				"factoryName": "sap.ushell.ui5service.ShellUIService",
-				"lazy": false,
-				"settings": {
-					"setTitle": "auto"
-				}
-			}
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
 		},
 		"routing": {
 			"config": {
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
-				"viewPath": "com.demo.DemoUi5Project.view",
-				"controlId": "app",
+				"async": true,
+				"viewPath": "Devops.DevopsDemo.view",
 				"controlAggregation": "pages",
-				"bypassed": {
-					"target": [
-						"notFound"
-					]
-				},
-				"async": true
+				"controlId": "app",
+				"clearControlAggregation": false
 			},
-			"routes": [
-				{
-					"pattern": "",
-					"name": "worklist",
-					"target": [
-						"worklist"
-					]
-				},
-				{
-					"pattern": "Categories/{objectId}",
-					"name": "object",
-					"target": [
-						"object"
-					]
-				}
-			],
+			"routes": [{
+				"name": "RouteView1",
+				"pattern": "RouteView1",
+				"target": ["TargetView1"]
+			}],
 			"targets": {
-				"worklist": {
-					"viewName": "Worklist",
-					"viewId": "worklist",
-					"viewLevel": 1,
-					"title": "{i18n>worklistViewTitle}"
-				},
-				"object": {
-					"viewName": "Object",
-					"viewId": "object",
-					"viewLevel": 2,
-					"title": "{i18n>objectViewTitle}"
-				},
-				"objectNotFound": {
-					"viewName": "ObjectNotFound",
-					"viewId": "objectNotFound"
-				},
-				"notFound": {
-					"viewName": "NotFound",
-					"viewId": "notFound"
+				"TargetView1": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "View1",
+					"viewName": "View1"
 				}
 			}
 		}

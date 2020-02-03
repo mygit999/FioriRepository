@@ -1,6 +1,6 @@
 specVersion: '1.0'
 metadata:
-  name: DemoUi5Project
+  name: DevopsDemo
 type: application
 resources:
   configuration:
@@ -12,7 +12,7 @@ builder:
       configuration:
         destDir: dist
         appFolder: webapp
-        nameSpace: com/demo
+        nameSpace: Devops
     - name: webide-extension-task-updateManifestJson
       afterTask: webide-extension-task-updateNeoApp
       configuration:
@@ -23,8 +23,8 @@ builder:
       configuration:
         destDir: dist
         appFolder: webapp
-        nameSpace: com/demo 
+        nameSpace: Devops 
     - name: webide-extension-task-resources
       afterTask: webide-extension-task-lint
       configuration:
-        nameSpace: com/demo
+        nameSpace: Devops
