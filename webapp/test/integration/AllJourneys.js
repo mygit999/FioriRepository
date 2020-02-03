@@ -6,7 +6,8 @@ sap.ui.define([
 	"./NavigationJourney",
 	"./NotFoundJourney",
 	"./ObjectJourney",
-	"./FLPIntegrationJourney"
+	"./FLPIntegrationJourney",
+	"../../../DevopsTest"
 ], function (Opa5, Startup, FLP) {
 	"use strict";
 
