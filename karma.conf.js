@@ -87,7 +87,7 @@ module.exports = function (config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'test/client/*.js'
+      'test/unit/*.js'
     ],
 
     // list of files to exclude
@@ -95,16 +95,17 @@ module.exports = function (config) {
     ],
 
     preprocessors: {
-      'test/client/*.js': ['browserify']
+      'test/unit/*.js': ['browserify']
     },
 
     // use dots reporter, as travis terminal does not support escaping sequences
     // possible values: 'dots', 'progress'
     // CLI --reporters progress
-    reporters: ['progress', 'junit'],
-
+    reporters: ['dots', 'junit'],
+    singleRun: true,
     junitReporter: {
       // will be resolved to basePath (in the same way as files/exclude patterns)
+      outputDir: 'TEST_RESULTS'
       outputFile: 'test-results.xml'
     },
 
